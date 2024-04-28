@@ -1,0 +1,54 @@
+{% extends 'movie/base.html' %}
+{% block title %}
+    Update
+{% endblock %}
+{% block content %}
+<style>
+    /* Styles for the form container */
+.update-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Styles for the form fields */
+.update-form input[type="text"],
+.update-form input[type="number"],
+.update-form input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+/* Style for the submit button */
+.update-form button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Hover effect for the submit button */
+.update-form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.error-msg {
+    color: red;
+    margin-top: 10px;
+}
+
+</style>
+    <div class="update-form">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        <div class="error-msg">
+            {{ msg }}
+        </div>
+    </div>
+{% endblock %}

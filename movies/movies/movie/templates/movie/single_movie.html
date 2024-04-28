@@ -1,0 +1,18 @@
+{% extends 'movie/base.html' %}
+{% block title %}
+    Single Movie
+{% endblock %}
+{% block content %}
+    <div style="display: flex;">
+        <div style="flex: 1;">
+            <img src="{{ movie.movie_image.url }}" alt="Movie Image" style="max-width: 100%;">
+        </div>
+        <div style="flex: 1;">
+            <h1>Movie Details</h1>
+            <p>ID: {{ movie.id }}</p>
+            <p>Name: {{ movie.movie_name }}</p>
+            <p>Publish Date: {{ movie.publish_date }}</p>
+            <p>Part: {{ movie.part }}</p>
+        </div>
+    </div>
+{% endblock %}

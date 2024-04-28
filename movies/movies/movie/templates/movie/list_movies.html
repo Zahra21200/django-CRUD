@@ -1,0 +1,47 @@
+{% extends 'movie/base.html' %}
+{% block title %}
+    List
+{% endblock %}
+{% block content %}
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+<h1>List of Movies</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Movie Name</th>
+            <th>Publish Date</th>
+            <th>Part</th>
+            <th>Actions</th> <!-- New column for actions -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for movie in movies %}
+            <tr>
+                <td>{{ movie.id }}</td>
+                <td>{{ movie.movie_name }}</td>
+                <td>{{ movie.publish_date }}</td>
+                <td>{{ movie.part }}</td>
+                <td>
+                    <a href="{% url 'display_movie' movie.id %}">Details</a> |
+                    <a href="{% url 'delete_movie' movie.id %}">Delete</a> |
+                    <a href="{% url 'update_movie' movie.id %}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
